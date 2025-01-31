@@ -74,7 +74,7 @@ module SolidusVirtualGiftCard
         end
       end
 
-      ::Spree::OrderContents.prepend self
+      ::Spree::SimpleOrderContents.prepend self
     end
   end
 end
