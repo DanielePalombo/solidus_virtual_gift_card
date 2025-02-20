@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-if defined?(Spree::Backend)
+if !defined?(Spree::Backend)
+  module Spree; module Admin; end; end unless defined?(Spree::Admin)
+  class Spree::Admin::GiftCardsController
+  end
+else
   class Spree::Admin::GiftCardsController < Spree::Admin::BaseController
     before_action :load_user, only: [:lookup, :redeem]
     before_action :load_gift_card_for_redemption, only: [:redeem]
